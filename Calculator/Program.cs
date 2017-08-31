@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace MyCalculator
 {
@@ -17,32 +16,32 @@ namespace MyCalculator
 				Console.WriteLine("Enter operator ( +, -, *, or /)");
 				string operationType = Console.ReadLine();
 
-				while (true)
-				{
-					var regex = @"[*+/-]";
-					var match = Regex.Match(operationType, regex);
+				//Operator Selected
+				OperationType newOperation = OperationType.GetOperator(operationType);
+				//Console.WriteLine("You selected: {0}", newOperation.Operator);
 
-					if (!match.Success)
-					{
-						Console.WriteLine("Enter correct operator ( +, -, *, or /)");
-						operationType = Console.ReadLine();
-					}
-					else
-					{
-						break;
-					}
-				}
+				//while (true)
+				//{
+				//	var regex = @"[*+/-]";
+				//	var match = Regex.Match(operationType, regex);
 
-				//Test
-                OperationType newOperation = OperationType.GetOperator(operationType);
-				Console.WriteLine("You selected: {0}", newOperation.Operator);
+				//	if (!match.Success)
+				//	{
+				//		Console.WriteLine("Enter correct operator ( +, -, *, or /)");
+				//		operationType = Console.ReadLine();
+				//	}
+				//	else
+				//	{
+				//		break;
+				//	}
+				//}
 
 				Console.WriteLine("Enter your second number");
 				float secondNumber = float.Parse(Console.ReadLine());
 
 				float result;
 
-				switch (operationType)
+                switch (newOperation.Operator)
 				{
 					case "+":
 						result = firstNumber + secondNumber;
