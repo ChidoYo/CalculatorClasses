@@ -34,7 +34,7 @@ namespace MyCalculator
 				}
 
 				//Test
-				OperationType newOperation = OperationType.GetOperator();
+                OperationType newOperation = OperationType.GetOperator(operationType);
 				Console.WriteLine("You selected: {0}", newOperation.Operator);
 
 				Console.WriteLine("Enter your second number");
