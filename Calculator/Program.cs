@@ -1,4 +1,5 @@
 ﻿using System;
+using Calculator;
 
 namespace MyCalculator
 {
@@ -11,57 +12,20 @@ namespace MyCalculator
 			while (true)
 			{
 				Console.WriteLine("Enter your first number");
-				float firstNumber = float.Parse(Console.ReadLine());
+    				float firstNumber = float.Parse(Console.ReadLine());
 
 				Console.WriteLine("Enter operator ( +, -, *, or /)");
 				string operationType = Console.ReadLine();
 
 				//Operator Selected
 				OperationType newOperation = OperationType.GetOperator(operationType);
-				//Console.WriteLine("You selected: {0}", newOperation.Operator);
-
-				//while (true)
-				//{
-				//	var regex = @"[*+/-]";
-				//	var match = Regex.Match(operationType, regex);
-
-				//	if (!match.Success)
-				//	{
-				//		Console.WriteLine("Enter correct operator ( +, -, *, or /)");
-				//		operationType = Console.ReadLine();
-				//	}
-				//	else
-				//	{
-				//		break;
-				//	}
-				//}
 
 				Console.WriteLine("Enter your second number");
 				float secondNumber = float.Parse(Console.ReadLine());
 
-				float result;
+                // Operation done
+                Calculation.Execution(firstNumber, newOperation.Operator, secondNumber);
 
-                switch (newOperation.Operator)
-				{
-					case "+":
-						result = firstNumber + secondNumber;
-						Console.WriteLine("{0} + {1} = {2}", firstNumber, secondNumber, result);
-						break;
-					case "-":
-						result = firstNumber - secondNumber;
-						Console.WriteLine("{0} - {1} = {2}", firstNumber, secondNumber, result);
-						break;
-					case "*":
-						result = firstNumber * secondNumber;
-						Console.WriteLine("{0} x {1} = {2}", firstNumber, secondNumber, result);
-						break;
-					case "/":
-						result = firstNumber / secondNumber;
-						Console.WriteLine("{0} / {1} = {2}", firstNumber, secondNumber, result);
-						break;
-					default:
-						break;
-				}
 
 				Console.WriteLine("One more try?");
 				string response = Console.ReadLine();

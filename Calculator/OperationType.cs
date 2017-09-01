@@ -9,8 +9,6 @@ namespace MyCalculator
 
 		public static OperationType GetOperator(string opType)
 		{
-			
-            //Console.WriteLine("This is OperationType Class!");
 
 			while (true)
 			{
